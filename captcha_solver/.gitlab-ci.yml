@@ -1,0 +1,17 @@
+stages:
+    - build
+
+variables:
+    TAG: $CI_COMMIT_REF_NAME
+    IMAGE_NAME: $CI_REGISTRY/chepelev_vs/$CI_PROJECT_NAME:latest
+
+build-job:
+    before_script:
+        - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+    stage: build
+    script:
+        - docker build . -t $IMAGE_NAME
+        - docker push $IMAGE_NAME
+    when: manual
+    only:
+      - development
