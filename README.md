@@ -1,3 +1,4 @@
+used with [captcha-image-to-grayscale](https://github.com/Anoncheg1/captcha-image-to-grayscale)
 # captcha-solver
 Captcha type to solve and used libraries for solvation:
 - audio - librosa 
